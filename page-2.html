@@ -5,9 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page 2</title>
-    <link rel="stylesheet" crossorigin href="/CBS_TEST_Frontend/assets/styles-DvPDDfy5.css">
+    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+
+     <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #authorList {
+            width: 200px;
+            display: inline-block;
+        }
+
+        #authorList>li {
+            cursor: pointer;
+            list-style: none;
+        }
+
+        #authorList>li:hover {
+            background-color: orange;
+        }
+
+        #authorList li.selected {
+            background-color: lightcoral;
+        }
+
+        #output {
+            display: inline-block;
+            border: 1px solid gray;
+            padding: 10px;
+            vertical-align: top;
+            margin-top: 20px;
+            width: 300px;
+            min-height: 180px;
+        }
+
+        .form-group {
+            margin-bottom: 4px;
+        }
+
+        .form-group label {
+            width: 85px;
+            display: inline-block;
+        }
+
+        .form-group input {
+            width: 200px;
+        }
+    </style>
+
+
   </head>
   <body>
+    
     <header class="header">
   <div class="container">
     <nav class="nav">
@@ -54,6 +104,40 @@
     </p> -->
   </div>
 </footer>
+
+
+
+ <ul id="authorList">
+    </ul>
+
+    <form id="output">
+        <div class="form-group">
+            <label for="surname">Прізвище</label>
+            <input type="text" name="surname" id="surname">
+        </div>
+        <div class="form-group">
+            <label for="nameA">Ім'я</label>
+            <input type="text" name="nameA" id="nameA">
+        </div>         
+        <div class="form-group">
+            <label for="patronymic">По батькові</label>
+            <input type="text" name="patronymic" id="patronymic">
+        </div>
+        <div class="form-group">
+            <label for="dob">Дата народження</label>
+            <input type="number" name="dob" id="dob">
+        </div>
+        <!-- <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="age">Вік</label>
+            <input type="number" name="age" id="age">
+        </div> -->
+        <input type="button" value="Save" id="saveButton">
+    </form>
+   
 
   </body>
 </html>
