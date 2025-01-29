@@ -1,8 +1,14 @@
 import { authors } from "./authors.js";
 
-let authorList = document.querySelector('#authorList');
-let saveButton = document.querySelector('#saveButton');
+let authorList = document.querySelector("#authorList");
+let saveButton = document.querySelector("#saveButton");
 let selectAuthor = null;
+
+// console.log(authors);
+// console.log(authorList);
+// console.log(selectAuthor);
+// console.log(authors.length); 
+// console.log(authors[0]);
 
 for (let index = 0; index < authors.length; index++) {
   const currentAuthor = authors[index];
@@ -10,12 +16,17 @@ for (let index = 0; index < authors.length; index++) {
   li.textContent = currentAuthor.surname + ' ' + currentAuthor.nameA;
   li.dataset.authorNumber = index;
   authorList.append(li);
+  // console.log(li);
+  
 }
 
 // Встановлення обробників
 authorList.addEventListener('click', function (e) {
-  if (e.target.tagName != 'LI') return;
+
+
+  if (e.target.tagName != "LI") return;
   selectAuthor = authors[e.target.dataset.authorNumber];
+  
   fillForm(selectAuthor);
   selectListItem(e.target);
 });
@@ -40,7 +51,7 @@ function deselectAllListItems() {
 
 function fillForm(selectAuthor) {
   const form = document.forms[0];
-
+  
   form.surname.value = selectAuthor.surname;
   form.nameA.value = selectAuthor.nameA;
   form.patronymic.value = selectAuthor.patronymic;
