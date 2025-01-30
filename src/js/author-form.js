@@ -3,12 +3,77 @@ import { authors } from "./authors.js";
 let authorList = document.querySelector("#authorList");
 let saveButton = document.querySelector("#saveButton");
 let selectAuthor = null;
+let form = document.querySelector('#output'); 
 
 // console.log(authors);
 // console.log(authorList);
 // console.log(selectAuthor);
-// console.log(authors.length); 
+// console.log(authors.length);
 // console.log(authors[0]);
+
+form.addEventListener('submit', onFormSubmit);
+
+function onFormSubmit(event) {
+  event.preventDefault();
+
+  // console.dir(event.currentTarget.elements.surname.value); 
+  const formData = new FormData(event.currentTarget);   
+  console.log(formData);
+
+  let data = Object.fromEntries(formData.entries()); 
+  console.log(data);
+  // formData.forEach((value, name) => {
+  //   console.log('onFormSubmit -> name', name);
+  //   console.log('onFormSubmit -> value', value);
+  // }); 
+
+  const makeAuthorsTableRowMarkup = data1 => {
+    const { surname, nameA, patronymic, dob } = data1;
+
+    return `
+  <tr>
+    <td>${surname}</td>
+    <td>${nameA}</td>
+    <td>${patronymic}</td>
+    <td>${dob}</td>     
+  </tr>
+  `;
+  };
+
+  console.log(data);
+  const tableEl = document.querySelector('.authors-table');
+  const transactionTableRowsMarkup = data
+    .map(makeAuthorsTableRowMarkup)
+    .join('');
+
+  tableEl.insertAdjacentHTML('beforeend', transactionTableRowsMarkup);
+  
+}
+
+// const makeAuthorsTableRowMarkup = data => {
+// const { surname, nameA, patronymic, dob } = data;
+
+//   return `
+//   <tr>
+//     <td>${surname}</td>
+//     <td>${nameA}</td>
+//     <td>${patronymic}</td>
+//     <td>${dob}</td>     
+//   </tr>
+//   `;
+// };
+
+// console.log(authors);
+// const tableEl = document.querySelector('.authors-table');
+// const transactionTableRowsMarkup = authors
+//   .map(makeAuthorsTableRowMarkup)
+//   .join('');
+
+// tableEl.insertAdjacentHTML('beforeend', transactionTableRowsMarkup);
+
+// console.log(transactionTableRowsMarkup);
+
+
 
 for (let index = 0; index < authors.length; index++) {
   const currentAuthor = authors[index];
@@ -70,3 +135,25 @@ function updateAuthor(selectAuthor) {
 //   selectAuthor.email = form.email.value;
 //   selectAuthor.age = form.age.value;
 }
+
+
+// const form = document.querySelector('.js-register-form');
+
+// authorList.addEventListener('submit', onFormSubmit);
+
+
+// function onFormSubmit(event) {
+//   event.preventDefault();
+
+// console.dir(event.currentTarget.elements);
+
+
+//   const formData = new FormData(event.currentTarget);
+
+//   console.log(formData);
+
+//   formData.forEach((value, name) => {
+//     console.log('onFormSubmit -> name', name);
+//     console.log('onFormSubmit -> value', value);
+//   });
+// }
