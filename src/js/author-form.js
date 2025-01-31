@@ -6,24 +6,43 @@ let selectAuthor = null;
 let form = document.querySelector('#output'); 
 
 // const STORAGE_KEY = "authors-item";
-let key = Date.now();
+let keykey = Date.now();
 
+const catalog = [];
 form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
-  event.preventDefault(); 
-  
-  const formData = new FormData(event.currentTarget);   
-  console.log(formData); 
-  let data = Object.fromEntries(formData.entries()); 
-  
-  localStorage.setItem(key, JSON.stringify(data)); 
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+  console.log(formData);
+  let data = Object.fromEntries(formData.entries());
+  console.log(data);
+
+  event.currentTarget.reset();
+  // const catalog = [];
+
+  // console.log(nums);
+  const nums = catalog.push(data);
+  // localStorage.setItem(keykey, JSON.stringify(catalog));
 
   document.querySelector(
     '.content'
   ).innerHTML = `<table class="authors"></table>`;
-       
-    const { surname, nameA, patronymic, dob } = data;
+
+  // const { surname, nameA, patronymic, dob } = data;
+  // let row = document.createElement('tr');
+  // row.innerHTML = `
+  // <td>${surname}</td>
+  // <td>${nameA}</td>
+  // <td>${patronymic}</td>
+  // <td>${dob}</td> `;
+  // document.querySelector('.authors').appendChild(row);
+
+  console.log(catalog);
+  for (var key in catalog) {
+    // console.log(data[key]);
+    // const { surname, nameA, patronymic, dob } = data;
     let row = document.createElement('tr');
     row.innerHTML = `
     <td>${surname}</td>
@@ -31,18 +50,7 @@ function onFormSubmit(event) {
     <td>${patronymic}</td>
     <td>${dob}</td> `;
     document.querySelector('.authors').appendChild(row);
-  
-  // for (var key in data) {
-  //   // console.log(data[key]);
-  //   const { surname, nameA, patronymic, dob } = data;
-  //   let row = document.createElement('tr');
-  //   row.innerHTML = `
-  //   <td>${surname}</td>
-  //   <td>${nameA}</td>
-  //   <td>${patronymic}</td>
-  //   <td>${dob}</td> `;
-  //   document.querySelector('.authors').appendChild(row);
-  // }
+  }
   event.currentTarget.reset();
   // form.reset();
 }
