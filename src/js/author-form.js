@@ -5,49 +5,46 @@ let saveButton = document.querySelector("#saveButton");
 let selectAuthor = null;
 let form = document.querySelector('#output'); 
 
-// console.log(authors);
-// console.log(authorList);
-// console.log(selectAuthor);
-// console.log(authors.length);
-// console.log(authors[0]);
+// const STORAGE_KEY = "authors-item";
+let key = Date.now();
 
 form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
-  event.preventDefault();
-
-  // console.dir(event.currentTarget.elements.surname.value); 
+  event.preventDefault(); 
+  
   const formData = new FormData(event.currentTarget);   
-  console.log(formData);
-
+  console.log(formData); 
   let data = Object.fromEntries(formData.entries()); 
-  console.log(data);
-  // formData.forEach((value, name) => {
-  //   console.log('onFormSubmit -> name', name);
-  //   console.log('onFormSubmit -> value', value);
-  // }); 
+  
+  localStorage.setItem(key, JSON.stringify(data)); 
 
-  const makeAuthorsTableRowMarkup = data1 => {
-    const { surname, nameA, patronymic, dob } = data1;
-
-    return `
-  <tr>
+  document.querySelector(
+    '.content'
+  ).innerHTML = `<table class="authors"></table>`;
+       
+    const { surname, nameA, patronymic, dob } = data;
+    let row = document.createElement('tr');
+    row.innerHTML = `
     <td>${surname}</td>
     <td>${nameA}</td>
     <td>${patronymic}</td>
-    <td>${dob}</td>     
-  </tr>
-  `;
-  };
-
-  console.log(data);
-  const tableEl = document.querySelector('.authors-table');
-  const transactionTableRowsMarkup = data
-    .map(makeAuthorsTableRowMarkup)
-    .join('');
-
-  tableEl.insertAdjacentHTML('beforeend', transactionTableRowsMarkup);
+    <td>${dob}</td> `;
+    document.querySelector('.authors').appendChild(row);
   
+  // for (var key in data) {
+  //   // console.log(data[key]);
+  //   const { surname, nameA, patronymic, dob } = data;
+  //   let row = document.createElement('tr');
+  //   row.innerHTML = `
+  //   <td>${surname}</td>
+  //   <td>${nameA}</td>
+  //   <td>${patronymic}</td>
+  //   <td>${dob}</td> `;
+  //   document.querySelector('.authors').appendChild(row);
+  // }
+  event.currentTarget.reset();
+  // form.reset();
 }
 
 // const makeAuthorsTableRowMarkup = data => {
