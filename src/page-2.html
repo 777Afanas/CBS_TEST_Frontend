@@ -117,8 +117,6 @@
       </form>
       <p>Книги:</p>
 
-      <div class="books"></div>
-
       <form id="book">
         <div class="form-book">
           <label for="title">Назва</label>
@@ -130,18 +128,19 @@
         </div>
         <div class="form-book">
           <label for="genre">Жанр</label>
-          <input
-            type="text"
-            name="genre"
-            id="genre
-            "
-          />
+          <input type="text" name="genre" id="genre" />
         </div>
         <button type="submit">Додати книгу</button>
       </form> 
-
-
       
+      <div>
+        Кількість:
+        <span id="total"></span>
+      </div>
+
+      <div id="result" class="books"></div>
+      
+
     </main>
 
     <load src="./partials/footer.html" />

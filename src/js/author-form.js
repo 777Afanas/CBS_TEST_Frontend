@@ -6,11 +6,32 @@ let selectAuthor = null;
 let form = document.querySelector('#output');
 let bookForm = document.querySelector('#book');
 
-// const STORAGE_KEY = "authors-item";
-let key = Date.now();
+let result = document.querySelector('.books');
 
-const catalog = [];
-const bibliography = [];
+// const STORAGE_KEY = "authors-item";
+// let key = Date.now();
+// const author;
+
+let catalog = []; 
+
+// if (localStorage.getItem('author')) {
+//   catalog = JSON.parse(localStorage.getItem('author'));
+//   function displayCatalog() {     
+//     for (let i = 0; i < catalog.length; i++) {
+//       let row = document.createElement('tr');
+//       row.innerHTML = `
+//     <td>${catalog[i].surname}</td>
+//     <td>${catalog[i].nameA}</td>
+//     <td>${catalog[i].patronymic}</td>
+//     <td>${catalog[i].dob}</td> `;
+
+//       document.querySelector('.authors').appendChild(row);
+//     }
+//   }
+// }  
+
+let bibliography = [];
+
 form.addEventListener('submit', onFormSubmit);
 bookForm.addEventListener('submit', onBookFormSubmit);
 
@@ -22,8 +43,9 @@ function onFormSubmit(event) {
   let data = Object.fromEntries(formData.entries());
   console.log(data);
 
-  const nums = catalog.push(data);
-  localStorage.setItem(key, JSON.stringify(catalog));
+  const num = catalog.push(data);
+  console.log(catalog);
+  localStorage.setItem('author', JSON.stringify(catalog));
 
   document.querySelector(
     '.content'
@@ -37,7 +59,7 @@ function onFormSubmit(event) {
   // <td>${patronymic}</td>
   // <td>${dob}</td> `;
   // document.querySelector('.authors').appendChild(row);
-
+  
   for (let i = 0; i < catalog.length; i++) {
     let row = document.createElement('tr');
     row.innerHTML = `
@@ -62,26 +84,96 @@ console.log(formData);
 let data = Object.fromEntries(formData.entries());
 console.log(data);
 
-const nums = bibliography.push(data);
-// localStorage.setItem(key, JSON.sringify(catalog));
-
-document.querySelector(
-  '.books'
-  ).innerHTML = `<table class="record"></table>`;
+bibliography.push(data); //   ЛИШНЯЯ  ПЕРЕМЕННАЯ
+console.log(bibliography);
   
-  for (let i = 0; i < bibliography.length; i++) {
-    let row = document.createElement('tr');
-    row.innerHTML = `
-    <td>${bibliography[i].title}</td>
-    <td>${bibliography[i].paging}</td>     
-    <td>${bibliography[i].genre}</td> `;
+// localStorage.setItem('key', JSON.sringify(bibliography));
 
-    document.querySelector('.record').appendChild(row);
-  }
-  // }
+// document.querySelector(
+//   '.books'
+//   ).innerHTML = `<table class="record"></table>`;
 
-  event.currentTarget.reset();
+  result.innerHTML = `<table class="record"></table>`;
+  
+  console.log(result);
+  // for (let i = 0; i < bibliography.length; i++) {
+  //   let row = document.createElement('tr');
+  //   row.innerHTML = `
+  //   <td>${bibliography[i].title}</td>
+  //   <td>${bibliography[i].paging}</td>     
+  //   <td>${bibliography[i].genre}</td> `; 
 
+  //   document.querySelector('.record').appendChild(row);    
+  // }   
+  console.log(bibliography); 
+  createBooks(bibliography);
+
+  console.log(bibliography); 
+    
+  // bibliography.forEach(function (item, i) {
+  //   let row = document.createElement('tr');
+  //   row.innerHTML = `
+  //   <td>${bibliography[i].title}</td>
+  //   <td>${bibliography[i].paging}</td>     
+  //   <td>${bibliography[i].genre}</td> `;
+
+  //   document.querySelector('.record').appendChild(row); 
+  // });  
+  event.currentTarget.reset(); 
+}
+
+// let delButton = document.querySelector('.btn');
+// let bookItem = document.querySelector('tr');
+
+// delButton.addEventListener('click', e => {
+//   console.log(bookItem);
+// });
+
+
+function createBooks(value) {
+   for (let i = 0; i < value.length; i++) {
+     let row = document.createElement('tr');
+     row.id = `text`;
+     row.className = `note`;
+     row.innerHTML = `
+    <td>${value[i].title}</td>
+    <td>${value[i].paging}</td>     
+    <td>${value[i].genre}</td> 
+    <input name="del" type="button" value="удалить"/>`;
+    // <button class="btn">удалить</button>`;
+    // <input name="del" type="button" value="удалить"/>`;
+     
+    //  <button class="btn">удалить</button>`;
+     
+
+     document.querySelector('.record').appendChild(row);
+    //  let tab = document.querySelector('.record');
+    //  let tabRows = document.querySelector('.note');
+    //  let delButton = document.querySelector('.btn');
+
+      // console.log(tab);
+      // console.log(tabRows);
+    //  console.log(delButton);
+
+    //  delButton.addEventListener('click', e => {
+    //    for (let row of tabRows) {
+    //      elem.remove();
+    //    }
+    
+    let els = document.getElementsByName('del');
+    els.forEach(function (item) {
+      item.addEventListener('click', function () {
+        item.parentNode.parentNode.removeChild(item.parentNode);
+      });
+    });
+     
+     //  let delButton = document.querySelector('.btn');
+     //  delButton.addEventListener('click', (e) => {
+     //   //  console.log(bookItem);
+     //   let note = document.getElementById(`text`);
+     //    note.removeChild(note.lastElementChild);
+     //  })
+   }   
 }
 // const makeAuthorsTableRowMarkup = data => {
 // const { surname, nameA, patronymic, dob } = data;
