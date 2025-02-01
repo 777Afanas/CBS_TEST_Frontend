@@ -7,124 +7,120 @@
     <title>Page 2</title>
     <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
 
-     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-        #authorList {
-            width: 200px;
-            display: inline-block;
-        }
+      #authorList {
+        width: 200px;
+        display: inline-block;
+      }
 
-        #authorList>li {
-            cursor: pointer;
-            list-style: none;
-        }
+      #authorList > li {
+        cursor: pointer;
+        list-style: none;
+      }
 
-        #authorList>li:hover {
-            background-color: orange;
-        }
+      #authorList > li:hover {
+        background-color: orange;
+      }
 
-        #authorList li.selected {
-            background-color: lightcoral;
-        }
+      #authorList li.selected {
+        background-color: lightcoral;
+      }
 
-        #output {
-            display: inline-block;
-            border: 1px solid gray;
-            padding: 10px;
-            vertical-align: top;
-            margin-top: 20px;
-            width: 300px;
-            min-height: 180px;
-        }
+      #output {
+        display: inline-block;
+        border: 1px solid gray;
+        padding: 10px;
+        vertical-align: top;
+        margin-top: 20px;
+        width: 300px;
+        min-height: 180px;
+      }
 
-        .form-group {
-            margin-bottom: 4px;
-        }
+      .form-group {
+        margin-bottom: 4px;
+      }
 
-        .form-group label {
-            width: 85px;
-            display: inline-block;
-        }
+      .form-group label {
+        width: 85px;
+        display: inline-block;
+      }
 
-        .form-group input {
-            width: 200px;
-        }
+      .form-group input {
+        width: 200px;
+      }
     </style>
-
-
     <script type="module" crossorigin src="/CBS_TEST_Frontend/page-2.js"></script>
   </head>
   <body>
-    
     <header class="header">
   <div class="container">
     <nav class="nav">
-      <!-- <a class="nav-logo" href="./index.html" aria-label="Site logo">
+     <!-- <a class="nav-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-icon" width="100" height="30">
           <use href="./img/sprite.svg#logo"></use>
         </svg>
       </a> -->
       <ul class="nav-list">
         <li class="nav-item">
-          <a class="nav-link active" href="./page-2.html">Page 2</a>
+          <a class="nav-link active" href="./page-2.html">Practice assignment</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
+          <!-- <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a> -->
         </li>
       </ul>
     </nav>
   </div>
 </header>
 
-
     <main>
       <div class="container">
-        <h1 class="main-title">
+        <!-- <h1 class="main-title">
           <span class="main-title-gradient">Welcome</span> to page 2
-        </h1>
-        <a class="back-link" href="./index.html">Go back</a>
+        </h1> -->
+        <!-- <a class="back-link" href="./index.html">Go back</a>
+ -->
+      </div>
 
-      </div> 
-      
-<ul id="authorList">
-    </ul>
+      <ul id="authorList"></ul>
 
-
-<table class="authors-table">
-    <thead>
-        <tr>
-            <th>Прізвище</th>
-            <th>Ім'я</th>
+      <table class="authors-table">
+        <thead>
+          <tr>
+            <th>Автори</th>
+            <!-- <th>Ім'я</th>
             <th>По батькові</th>
-            <th>Дата народження</th>
-            <!-- <th>Тип транзации</th>
-          <th>Имя счёта</th>            -->
-        </tr>
-    </thead>
-</table>
+            <th>Дата народження</th> -->
+            <th>------------</th>
+            <th>Книг в базе</th>
+            <!-- <th>Имя счёта</th>           -->
+          </tr>
+        </thead>
+      </table>
 
-<div class="content"></div>
+      <div class="content"></div>
 
-    <form id="output">
+      <form id="output">
         <div class="form-group">
-            <label for="surname">Прізвище</label>
-            <input type="text" name="surname" id="surname">
+          <label for="surname">Прізвище</label>
+          <input type="text" name="surname" id="surname" />
         </div>
         <div class="form-group">
-            <label for="nameA">Ім'я</label>
-            <input type="text" name="nameA" id="nameA">
-        </div>         
-        <div class="form-group">
-            <label for="patronymic">По батькові</label>
-            <input type="text" name="patronymic" id="patronymic">
+          <label for="nameA">Ім'я</label>
+          <input type="text" name="nameA" id="nameA" />
         </div>
         <div class="form-group">
-            <label for="dob">Дата народження</label>
-            <input type="number" name="dob" id="dob">
+          <label for="patronymic">По батькові</label>
+          <input type="text" name="patronymic" id="patronymic" />
         </div>
+        <div class="form-group">
+          <label for="dob">Дата народження</label>
+          <input type="number" name="dob" id="dob" />
+        </div>
+
         <!-- <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email">
@@ -133,11 +129,36 @@
             <label for="age">Вік</label>
             <input type="number" name="age" id="age">
         </div> -->
-        <input type="button" value="Save" id="saveButton">
+        <input type="button" value="Save" id="saveButton" />
         <button type="submit">Зарегистрироваться</button>
-    </form>
+      </form>
+      <p>Книги:</p>
+
+      <div class="books"></div>
+
+      <form id="book">
+        <div class="form-book">
+          <label for="title">Назва</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="form-book">
+          <label for="paging">Кількість сторінок</label>
+          <input type="number" name="paging" id="paging" />
+        </div>
+        <div class="form-book">
+          <label for="genre">Жанр</label>
+          <input
+            type="text"
+            name="genre"
+            id="genre
+            "
+          />
+        </div>
+        <button type="submit">Додати книгу</button>
+      </form> 
 
 
+      
     </main>
 
     <footer class="footer">
@@ -157,8 +178,7 @@
 </footer>
 
 
-    
-<!-- 
+    <!-- 
  <ul id="authorList">
     </ul>
 
@@ -182,9 +202,6 @@
       
         <input type="button" value="Save" id="saveButton">
     </form> -->
-    
-
-
 
   </body>
 </html>
