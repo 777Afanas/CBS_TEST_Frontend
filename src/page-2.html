@@ -7,107 +7,103 @@
     <title>Page 2</title>
     <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
 
-     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-        #authorList {
-            width: 200px;
-            display: inline-block;
-        }
+      #authorList {
+        width: 200px;
+        display: inline-block;
+      }
 
-        #authorList>li {
-            cursor: pointer;
-            list-style: none;
-        }
+      #authorList > li {
+        cursor: pointer;
+        list-style: none;
+      }
 
-        #authorList>li:hover {
-            background-color: orange;
-        }
+      #authorList > li:hover {
+        background-color: orange;
+      }
 
-        #authorList li.selected {
-            background-color: lightcoral;
-        }
+      #authorList li.selected {
+        background-color: lightcoral;
+      }
 
-        #output {
-            display: inline-block;
-            border: 1px solid gray;
-            padding: 10px;
-            vertical-align: top;
-            margin-top: 20px;
-            width: 300px;
-            min-height: 180px;
-        }
+      #output {
+        display: inline-block;
+        border: 1px solid gray;
+        padding: 10px;
+        vertical-align: top;
+        margin-top: 20px;
+        width: 300px;
+        min-height: 180px;
+      }
 
-        .form-group {
-            margin-bottom: 4px;
-        }
+      .form-group {
+        margin-bottom: 4px;
+      }
 
-        .form-group label {
-            width: 85px;
-            display: inline-block;
-        }
+      .form-group label {
+        width: 85px;
+        display: inline-block;
+      }
 
-        .form-group input {
-            width: 200px;
-        }
+      .form-group input {
+        width: 200px;
+      }
     </style>
-
-
   </head>
   <body>
-    
     <load
       src="./partials/header.html"
       icon-path="./img/sprite.svg#logo"
       highlight-act="active"
     />
-
     <main>
       <div class="container">
-        <h1 class="main-title">
+        <!-- <h1 class="main-title">
           <span class="main-title-gradient">Welcome</span> to page 2
-        </h1>
-        <load src="./partials/back-link.html" />
-      </div> 
-      
-<ul id="authorList">
-    </ul>
+        </h1> -->
+        <!-- <load src="./partials/back-link.html" /> -->
+      </div>
 
+      <ul id="authorList"></ul>
 
-<table class="authors-table">
-    <thead>
-        <tr>
-            <th>Прізвище</th>
-            <th>Ім'я</th>
+      <table class="authors-table">
+        <thead>
+          <tr>
+            <th>Автори</th>
+            <!-- <th>Ім'я</th>
             <th>По батькові</th>
-            <th>Дата народження</th>
-            <!-- <th>Тип транзации</th>
-          <th>Имя счёта</th>            -->
-        </tr>
-    </thead>
-</table>
+            <th>Дата народження</th> -->
+            <th>------------</th>
+            <th>Книг в базе</th>
+            <!-- <th>Имя счёта</th>           -->
+          </tr>
+        </thead>
+      </table>
 
-<div class="content"></div>
+      <div class="content"></div>
 
-    <form id="output">
+      <form id="output">
         <div class="form-group">
-            <label for="surname">Прізвище</label>
-            <input type="text" name="surname" id="surname">
+          <label for="surname">Прізвище</label>
+          <input type="text" name="surname" id="surname" />
         </div>
         <div class="form-group">
-            <label for="nameA">Ім'я</label>
-            <input type="text" name="nameA" id="nameA">
-        </div>         
-        <div class="form-group">
-            <label for="patronymic">По батькові</label>
-            <input type="text" name="patronymic" id="patronymic">
+          <label for="nameA">Ім'я</label>
+          <input type="text" name="nameA" id="nameA" />
         </div>
         <div class="form-group">
-            <label for="dob">Дата народження</label>
-            <input type="number" name="dob" id="dob">
+          <label for="patronymic">По батькові</label>
+          <input type="text" name="patronymic" id="patronymic" />
         </div>
+        <div class="form-group">
+          <label for="dob">Дата народження</label>
+          <input type="number" name="dob" id="dob" />
+        </div>
+
         <!-- <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email">
@@ -116,17 +112,41 @@
             <label for="age">Вік</label>
             <input type="number" name="age" id="age">
         </div> -->
-        <input type="button" value="Save" id="saveButton">
+        <input type="button" value="Save" id="saveButton" />
         <button type="submit">Зарегистрироваться</button>
-    </form>
+      </form>
+      <p>Книги:</p>
+
+      <div class="books"></div>
+
+      <form id="book">
+        <div class="form-book">
+          <label for="title">Назва</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="form-book">
+          <label for="paging">Кількість сторінок</label>
+          <input type="number" name="paging" id="paging" />
+        </div>
+        <div class="form-book">
+          <label for="genre">Жанр</label>
+          <input
+            type="text"
+            name="genre"
+            id="genre
+            "
+          />
+        </div>
+        <button type="submit">Додати книгу</button>
+      </form> 
 
 
+      
     </main>
 
     <load src="./partials/footer.html" />
 
-    
-<!-- 
+    <!-- 
  <ul id="authorList">
     </ul>
 
@@ -150,10 +170,7 @@
       
         <input type="button" value="Save" id="saveButton">
     </form> -->
-    
-
 
     <script type="module" src="./js/author-form.js"></script>
-
   </body>
 </html>
