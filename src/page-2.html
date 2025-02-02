@@ -68,23 +68,89 @@
         <!-- <load src="./partials/back-link.html" /> -->
       </div>
 
-      <ul id="authorList"></ul>
+      <form id="input-author">
+        <div>АВТОРИ</div>
 
-      <table class="authors-table">
-        <thead>
-          <tr>
-            <th>Автори</th>
-            <!-- <th>Ім'я</th>
-            <th>По батькові</th>
-            <th>Дата народження</th> -->
-            <th>------------</th>
-            <th>Книг в базе</th>
-            <!-- <th>Имя счёта</th>           -->
-          </tr>
-        </thead>
-      </table>
+        <div class="form-author">
+          <label for="initials">П І Б</label>
+          <input type="text" name="initials" id="initials" />
+        </div>
+        <div class="form-author">
+          <label for="collection">Кількість книг</label>
+          <input type="number" name="collection" id="collection" value="0" />
+        </div>
 
-      <div class="content"></div>
+        <button type="submit">Додати автора</button>
+
+        <div id="resultAuth" class="authors">           
+        </div>
+      </form>
+
+ЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛЛ
+
+      <form id="input">
+        <div class="form-group">
+          <label for="surname">Прізвище</label>
+          <input type="text" name="surname" id="surname" />
+        </div>
+        <div class="form-group">
+          <label for="nameA">Ім'я</label>
+          <input type="text" name="nameA" id="nameA" />
+        </div>
+        <div class="form-group">
+          <label for="patronymic">По батькові</label>
+          <input type="text" name="patronymic" id="patronymic" />
+        </div>
+        <div class="form-group">
+          <label for="dob">Дата народження</label>
+          <input type="date" name="dob" id="dob" />
+        </div>
+
+        <div>
+          КНИГИ (кількість):
+          <span id="total"></span>
+        </div>
+
+        <div id="result" class="books"></div>
+
+        <div class="form-book">
+          <label for="title">Назва</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div class="form-book">
+          <label for="paging">Кількість сторінок</label>
+          <input type="number" name="paging" id="paging" value="0" />
+        </div>
+        <div class="form-book">
+          <!-- <label for="genre">Жанр</label>
+          <input type="text" name="genre" id="genre" /> -->
+          <label for="genre">Жанр</label>
+          <select id="genre" name="genre">
+            <option value="класика">Класика</option>
+            <option value="ptr">Поезія</option>
+            <option value="hst">Історична тематика</option>
+            <option value="dtc">Детективи</option>
+            <option value="ttb">Підручники</option>
+            <option value="oth" selected>Інше</option>
+          </select>
+        </div>
+        <button type="submit">Додати книгу</button>
+
+        <!-- <button type="submit">Додати книгу</button> -->
+
+        <!-- <input type="button" value="Save" id="saveButton" /> -->
+        <!-- <button type="submit">Зарегистрироваться</button> -->
+      </form>
+
+<!-- /////////////////////////////////////////////////  -->
+  
+      <!-- <div id="result" class="books"></div> -->
+
+      <!-- /////////////////////////////////////////////////  -->
+      <!-- <ul id="authorList"></ul> -->
+
+
+      <!-- <div class="content"></div>
 
       <form id="output">
         <div class="form-group">
@@ -101,8 +167,8 @@
         </div>
         <div class="form-group">
           <label for="dob">Дата народження</label>
-          <input type="number" name="dob" id="dob" />
-        </div>
+          <input type="date" name="dob" id="dob" />
+        </div> -->
 
         <!-- <div class="form-group">
             <label for="email">Email</label>
@@ -112,7 +178,7 @@
             <label for="age">Вік</label>
             <input type="number" name="age" id="age">
         </div> -->
-        <input type="button" value="Save" id="saveButton" />
+        <!-- <input type="button" value="Save" id="saveButton" />
         <button type="submit">Зарегистрироваться</button>
       </form>
       <p>Книги:</p>
@@ -126,21 +192,28 @@
           <label for="paging">Кількість сторінок</label>
           <input type="number" name="paging" id="paging" />
         </div>
-        <div class="form-book">
-          <label for="genre">Жанр</label>
-          <input type="text" name="genre" id="genre" />
+        <div class="form-book"> -->
+          <!-- <label for="genre">Жанр</label>
+          <input type="text" name="genre" id="genre" /> -->
+          <!-- <label for="genre">Жанр</label>
+          <select id="genre" name="genre">
+            <option value="класика">Класика</option>
+            <option value="ptr">Поезія</option>
+            <option value="hst">Історична тематика</option>
+            <option value="dtc">Детективи</option>
+            <option value="ttb">Підручники</option>
+            <option value="oth" selected>Інше</option>
+          </select>
         </div>
         <button type="submit">Додати книгу</button>
-      </form> 
-      
-      <div>
+      </form> -->
+
+      <!-- <div>
         Кількість:
         <span id="total"></span>
       </div>
 
-      <div id="result" class="books"></div>
-      
-
+      <div id="result" class="books"></div> -->
     </main>
 
     <load src="./partials/footer.html" />
