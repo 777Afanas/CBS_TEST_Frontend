@@ -18,10 +18,32 @@ let resultAuth = document.querySelector('.authors');
 
 // /////////////////////////////////////////////////////////////////
 let catalog1 = [];  
-if (localStorage.getItem('author')) {
-  catalog1 = JSON.parse(localStorage.getItem('author'));
-  //  функція  
-}
+
+// if (localStorage.getItem('author')) {
+//   catalog1 = JSON.parse(localStorage.getItem('author'));
+//   //  функція
+  
+//   resultAuth.innerHTML = `<table class="record-author"> 
+//   <thead class="recd-auth">
+//     <tr>
+//       <th data-type="string">Автори</th>
+//       <th data-type="number">Книг в базе</th>
+//     </tr>
+//     </thead>
+//     <tbody class="rec-auth"></tbody>
+//     </table>`;
+//   for (let i = 0; i < catalog1.length; i++) {
+//     let row = document.createElement('tr');          
+//     row.id = `text`;
+//     row.className = `note`;    
+//     row.innerHTML = `    
+//     <td>${catalog1[i].initials}</td>
+//     <td>${catalog1[i].collection}</td>            
+//     <input name="del-auth" type="button" value="видалити"/>`;
+
+//     document.querySelector('.rec-auth').appendChild(row);
+//   }  
+// }
 
 
 let bibliography1 = [];
@@ -41,7 +63,7 @@ function onFormAuthorSubmit(event) {
   console.log(catalog1);
 
   // localStorage
-  // localStorage.setItem('author', JSON.stringify(catalog1));
+  localStorage.setItem('author', JSON.stringify(catalog1));
 
   // resultAuth.innerHTML = `<table class="record-author"></table>`;
   resultAuth.innerHTML = `<table class="record-author"> 
@@ -56,6 +78,7 @@ function onFormAuthorSubmit(event) {
 
   createAuthorsIn(catalog1);
 
+  //  СОРТУВАННЯ в таблиці  '.record-author"
   let tableAuth = document.querySelector('.record-author');
   // console.log(resultAuth);
   console.log(tableAuth);
@@ -93,8 +116,12 @@ function createAuthorsIn(value) {
   console.log(value);
   for (let i = 0; i < value.length; i++) {
     let row = document.createElement('tr');
+    // console.log(row); 
+    // let class_del = Date.now();      
     row.id = `text`;
     row.className = `note`;
+    // row.className = `${class_del}`;
+    console.log(row);
     row.innerHTML = `    
     <td>${value[i].initials}</td>
     <td>${value[i].collection}</td>            
@@ -108,7 +135,11 @@ function createAuthorsIn(value) {
       console.log(item);
       item.addEventListener('click', function () {
         console.log(item);
-        item.parentNode.parentNode.removeChild(item.parentNode);
+        // del = item.classList.add('delete');
+        item.parentNode.parentNode.removeChild(item.parentNode); 
+        // item.parentElement.parentElement.removeChild(item.parentElement);
+      //  window.localStorage.clear();
+
       });
     }); 
 
@@ -116,8 +147,6 @@ function createAuthorsIn(value) {
     document.getElementById('collection').value = '0';     
   }
 }
-
-
 
 function onFormInputSubmit(event) {
   event.preventDefault();
@@ -156,8 +185,6 @@ function createBooksIn(value) {
     // <td>${value[i].paging}</td>     
     // <td>${value[i].genre}</td>  
     // <input name="del" type="button" value="удалить"/>`; 
-
-
 
     document.querySelector('.record').appendChild(row);
 

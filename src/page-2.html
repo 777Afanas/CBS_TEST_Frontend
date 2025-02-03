@@ -81,7 +81,7 @@
           
             <div class="form-author">
               <label for="initials">П І Б</label>
-              <input type="text" name="initials" id="initials" />
+              <input type="text" name="initials" id="initials" required/>
             </div>
             <div class="form-author">
               <label for="collection">Кількість книг</label>
@@ -100,11 +100,11 @@
             </div>
             <div class="form-group">
               <label for="surname">Прізвище</label>
-              <input type="text" name="surname" id="surname" />
+              <input type="text" name="surname" id="surname" required/>
             </div>
             <div class="form-group">
               <label for="nameA">Ім'я</label>
-              <input type="text" name="nameA" id="nameA" />
+              <input type="text" name="nameA" id="nameA" required/>
             </div>
             <div class="form-group">
               <label for="patronymic">По батькові</label>
@@ -112,7 +112,7 @@
             </div>
             <div class="form-group">
               <label for="dob">Дата народження</label>
-              <input type="date" name="dob" id="dob" />
+              <input type="date" name="dob" id="dob" required/>
             </div>
           
             <div>
@@ -126,15 +126,15 @@
 
             <div class="form-book">
               <label for="title">Назва</label>
-              <input type="text" name="title" id="title" />
+              <input type="text" name="title" id="title" required/>
             </div>
             <div class="form-book">
               <label for="paging">Кількість сторінок</label>
-              <input type="number" name="paging" id="paging" value="0" />
+              <input type="number" name="paging" id="paging" value="0" required/>
             </div>
             <div class="form-book">              
               <label for="genre">Жанр</label>
-              <select id="genre" name="genre">
+              <select id="genre" name="genre" required>
                 <option value="класика">Класика</option>
                 <option value="поезія">Поезія</option>
                 <option value="історична">Історична тематика</option>
