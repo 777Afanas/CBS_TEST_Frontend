@@ -1,0 +1,72 @@
+
+
+.form-author {
+    margin-bottom: 4px;     
+    background-color: lightcoral;
+}
+
+.form-author label {
+    width: 100px;
+    display: inline-block;
+    width: 120px;      
+}
+
+.form-author input {
+    width: 200px;
+}
+
+.authors { 
+    /* margin-left: 300px; */
+    margin-bottom: 52px;
+}
+
+table {
+    table-layout: fixed;
+    width: 70%;
+    margin-left: 90px;
+    border-collapse: collapse;
+    /* border: 3px solid purple; */
+} 
+thead th:nth-child(1) {
+    width: 40%;
+} 
+thead th:nth-child(2) {
+    width: 20%;
+}
+ 
+th,
+td {
+    padding: 10px;    
+}
+
+
+#addAuth, #addBook {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* <form id="input"> */
+.form-group {
+    margin-bottom: 4px;
+    background-color: rgb(162, 240, 128);
+}
+
+.form-group label, .form-book label {
+    width: 100px;
+    display: inline-block;
+    width: 135px;
+}
+
+.form-group input, .form-book input, .form-book select {
+    width: 200px;
+}
+
+.authors {
+    /* margin-left: 300px; */
+    margin-bottom: 52px;
+}
+
+.form-book {
+    background-color: rgba(222, 245, 17, 0.923);
+}

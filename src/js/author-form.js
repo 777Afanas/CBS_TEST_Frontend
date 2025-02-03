@@ -45,7 +45,7 @@ function onFormAuthorSubmit(event) {
 
   // resultAuth.innerHTML = `<table class="record-author"></table>`;
   resultAuth.innerHTML = `<table class="record-author"> 
-  <thead>
+  <thead class="recd-auth">
     <tr>
       <th data-type="string">Автори</th>
       <th data-type="number">Книг в базе</th>
@@ -98,7 +98,7 @@ function createAuthorsIn(value) {
     row.innerHTML = `    
     <td>${value[i].initials}</td>
     <td>${value[i].collection}</td>            
-    <input name="del-auth" type="button" value="удалить"/>`;
+    <input name="del-auth" type="button" value="видалити"/>`;
 
     document.querySelector('.rec-auth').appendChild(row);
 
@@ -149,10 +149,15 @@ function createBooksIn(value) {
     row.id = `text`;
     row.className = `note`;
     row.innerHTML = `
-    <td>${value[i].title}</td>
-    <td>${value[i].paging}</td>     
+    <td>${value[i].title}</td>     
     <td>${value[i].genre}</td>  
-    <input name="del" type="button" value="удалить"/>`;
+    <input name="del" type="button" value="видалити"/>`; 
+    // <td>${value[i].title}</td>
+    // <td>${value[i].paging}</td>     
+    // <td>${value[i].genre}</td>  
+    // <input name="del" type="button" value="удалить"/>`; 
+
+
 
     document.querySelector('.record').appendChild(row);
 
